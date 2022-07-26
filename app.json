@@ -1,0 +1,27 @@
+{
+    "id": "0adb88a4-9f38-4aa9-8009-4c015ad537da",
+    "name": "AL-Flamegraph",
+    "publisher": "SShadowS",
+    "version": "1.0.0.0",
+    "brief": "Makes it possible to show flamegraphs in performance profiler.",
+    "description": "",
+    "privacyStatement": "",
+    "EULA": "",
+    "help": "",
+    "url": "",
+    "logo": "",
+    "dependencies": [],
+    "screenshots": [],
+    "platform": "1.0.0.0",
+    "application": "20.0.0.0",
+    "idRanges": [{
+        "from": 56642,
+        "to": 56650
+    }],
+    "resourceExposurePolicy": {
+        "allowDebugging": true,
+        "allowDownloadingSource": true,
+        "includeSourceInSymbolFile": true
+    },
+    "runtime": "9.0"
+}
