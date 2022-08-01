@@ -11,13 +11,17 @@ codeunit 56642 "Flamegraph Mgt."
     procedure GetFlamegraph(ALCPUProfile: Text) Base64Encoded: Text;
     var
         HTTP: HTTPClient;
+        Headers: Httpheaders;
         Response: HttpResponseMessage;
         Content: HttpContent;
         URL: Text;
     begin
-        URL := 'http://blogapi.sshadows.dk/upload';
-        //URL := 'http://192.168.2.77:5000/upload'; // For local testing
+        //URL := 'http://blogapi.sshadows.dk/upload';
+        URL := 'http://192.168.2.77:5000/upload'; // For local testing
         Content.WriteFrom(ALCPUProfile);
+        Content.GetHeaders(Headers);
+        Headers.Add('StripFileHeader', 'true');
+
         if Http.Post(URL, Content, Response) then begin
             case Response.HttpStatusCode of
                 200:

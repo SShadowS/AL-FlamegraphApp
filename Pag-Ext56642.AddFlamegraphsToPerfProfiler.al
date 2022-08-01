@@ -10,20 +10,20 @@ pageextension 56642 "AddFlamegraphsToPerfProfiler" extends "Performance Profiler
                 Visible = FlamegraphVisible;
 
                 // Alternative viewer, can't decide.
-                // usercontrol(FlamegraphAddIn; FlamegraphControlAddIn)
-                // {
-                //     ApplicationArea = All;
-                // }
-
-                usercontrol(SVG; "Microsoft.Dynamics.Nav.Client.WebPageViewer")
+                usercontrol(FlamegraphAddIn; FlamegraphControlAddIn)
                 {
                     ApplicationArea = All;
-
-                    trigger ControlAddInReady(callbackUrl: Text)
-                    begin
-                        CurrPage.SVG.SetContent('');
-                    end;
                 }
+
+                // usercontrol(SVG; "Microsoft.Dynamics.Nav.Client.WebPageViewer")
+                // {
+                //     ApplicationArea = All;
+
+                //     trigger ControlAddInReady(callbackUrl: Text)
+                //     begin
+                //         CurrPage.SVG.SetContent('');
+                //     end;
+                // }
             }
         }
     }
@@ -57,7 +57,8 @@ pageextension 56642 "AddFlamegraphsToPerfProfiler" extends "Performance Profiler
 
                     Flamegraph := FlamegraphMgt.GetFlamegraph(FileData);
                     FlamegraphVisible := Flamegraph <> '';
-                    CurrPage.SVG.SetContent(Flamegraph);
+                    //CurrPage.SVG.SetContent(Flamegraph);
+                    CurrPage.FlamegraphAddIn.SetContent(Flamegraph);
                     if Flamegraph = '' then
                         Error('Flamegraph is empty.');
                 end;
